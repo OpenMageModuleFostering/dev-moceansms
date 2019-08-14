@@ -39,8 +39,10 @@ class Mocean_Moceansms_Model_Observer
 					$smsto = str_replace("+","",$smsto);
 				}
 				else{
-					$error_message = "Error: Invalid Number! (".$smsto.")";
-					$smsto = '';
+					$error_message = "Error: Cannot validate ".$this->getHelper()->getCountry($order)." number (".$smsto.")";
+                    Mage::log($error_message,null,'moceansms.log');
+                    $smsto = preg_replace('/^\+/', '', $smsto); // + plus replace
+                    $smsto = preg_replace('/\s+/', '', $smsto); //   space replace
 				}
 
 				$smsmsg = urlencode($this->getHelper()->getMessage($order));
@@ -128,14 +130,16 @@ class Mocean_Moceansms_Model_Observer
 						$smsto = urlencode($this->getHelper()->getTelephoneFromOrder($order));
 						$phoneNumberUtil = \libphonenumber\PhoneNumberUtil::getInstance();
 				        $phoneNumber = $phoneNumberUtil->parse($smsto, $this->getHelper()->getCountry($order));
-				        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
-				            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
-							$smsto = str_replace("+","",$smsto);
-						}
-						else{
-							$error_message = "Error: Invalid Number! (".$smsto.")";
-							$smsto = '';
-						}
+                        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
+                            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
+                            $smsto = str_replace("+","",$smsto);
+                        }
+                        else{
+                            $error_message = "Error: Cannot validate ".$this->getHelper()->getCountry($order)." number (".$smsto.")";
+                            Mage::log($error_message,null,'moceansms.log');
+                            $smsto = preg_replace('/^\+/', '', $smsto); // + plus replace
+                            $smsto = preg_replace('/\s+/', '', $smsto); //   space replace
+                        }
 						$smsmsg = urlencode($this->getHelper()->getMessageForOrderHold($order));
 						Mage::log("Order onhold!",null,'moceansms.log');
 						/*handling error*/
@@ -208,14 +212,16 @@ class Mocean_Moceansms_Model_Observer
 						$smsto = urlencode($this->getHelper()->getTelephoneFromOrder($order));
 						$phoneNumberUtil = \libphonenumber\PhoneNumberUtil::getInstance();
 				        $phoneNumber = $phoneNumberUtil->parse($smsto, $this->getHelper()->getCountry($order));
-				        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
-				            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
-							$smsto = str_replace("+","",$smsto);
-						}
-						else{
-							$error_message = "Error: Invalid Number! (".$smsto.")";
-							$smsto = '';
-						}
+                        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
+                            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
+                            $smsto = str_replace("+","",$smsto);
+                        }
+                        else{
+                            $error_message = "Error: Cannot validate ".$this->getHelper()->getCountry($order)." number (".$smsto.")";
+                            Mage::log($error_message,null,'moceansms.log');
+                            $smsto = preg_replace('/^\+/', '', $smsto); // + plus replace
+                            $smsto = preg_replace('/\s+/', '', $smsto); //   space replace
+                        }
 						$smsmsg = urlencode($this->getHelper()->getMessageForOrderUnhold($order));
 						Mage::log("Order unhold!",null,'moceansms.log');
 						/*handling error*/
@@ -287,14 +293,16 @@ class Mocean_Moceansms_Model_Observer
 							$smsto = urlencode($this->getHelper()->getTelephoneFromOrder($order));
 							$phoneNumberUtil = \libphonenumber\PhoneNumberUtil::getInstance();
 					        $phoneNumber = $phoneNumberUtil->parse($smsto, $this->getHelper()->getCountry($order));
-					        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
-					            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
-								$smsto = str_replace("+","",$smsto);
-							}
-							else{
-								$error_message = "Error: Invalid Number! (".$smsto.")";
-								$smsto = '';
-							}
+                            if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
+                                $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
+                                $smsto = str_replace("+","",$smsto);
+                            }
+                            else{
+                                $error_message = "Error: Cannot validate ".$this->getHelper()->getCountry($order)." number (".$smsto.")";
+                                Mage::log($error_message,null,'moceansms.log');
+                                $smsto = preg_replace('/^\+/', '', $smsto); // + plus replace
+                                $smsto = preg_replace('/\s+/', '', $smsto); //   space replace
+                            }
 							$smsmsg = urlencode($this->getHelper()->getMessageForOrderCanceled($order));
 							Mage::log("Order cancelled!",null,'moceansms.log');
 							/*handling error*/
@@ -367,14 +375,16 @@ class Mocean_Moceansms_Model_Observer
 					$smsto = urlencode($this->getHelper()->getTelephoneFromOrder($order));
 					$phoneNumberUtil = \libphonenumber\PhoneNumberUtil::getInstance();
 			        $phoneNumber = $phoneNumberUtil->parse($smsto, $this->getHelper()->getCountry($order));
-			        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
-			            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
-						$smsto = str_replace("+","",$smsto);
-					}
-					else{
-						$error_message = "Error: Invalid Number! (".$smsto.")";
-						$smsto = '';
-					}
+                    if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
+                        $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
+                        $smsto = str_replace("+","",$smsto);
+                    }
+                    else{
+                        $error_message = "Error: Cannot validate ".$this->getHelper()->getCountry($order)." number (".$smsto.")";
+                        Mage::log($error_message,null,'moceansms.log');
+                        $smsto = preg_replace('/^\+/', '', $smsto); // + plus replace
+                        $smsto = preg_replace('/\s+/', '', $smsto); //   space replace
+                    }
 					$smsmsg = urlencode($this->getHelper()->getMessageForShipment($order));
 					Mage::log("Shipment msg sent!",null,'moceansms.log');
 					/*handling error*/
