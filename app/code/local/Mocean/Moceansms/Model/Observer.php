@@ -36,7 +36,7 @@ class Mocean_Moceansms_Model_Observer
 		        $phoneNumber = $phoneNumberUtil->parse($smsto, $this->getHelper()->getCountry($order));
 		        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
 		            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
-					$smsto = str_replace("+","",$customer_phone_no);
+					$smsto = str_replace("+","",$smsto);
 				}
 				else{
 					$error_message = "Error: Invalid Number! (".$smsto.")";
@@ -65,7 +65,7 @@ class Mocean_Moceansms_Model_Observer
 					$post_data .= '&mocean-text=' . $smsmsg;
 					$post_data .= '&mocean-to=' . $smsto;
 					$url = $api_url;
-					//$sendSms = $this->getHelper()->sendSms($url,$post_data);
+					$sendSms = $this->getHelper()->sendSms($url,$post_data);
 					Mage::log("response: ".$sendSms,null,'moceansms.log');
 					if($this->getHelper()->isAdminEnabled() && $adminNo != ''){
 
@@ -78,7 +78,7 @@ class Mocean_Moceansms_Model_Observer
 						$post_data .= '&mocean-text=' . $smsmsg;
 						$post_data .= '&mocean-to=' . $adminNo;
 						$url = $api_url;
-						//$sendSms = $this->getHelper()->sendSms($url,$post_data);
+						$sendSms = $this->getHelper()->sendSms($url,$post_data);
 						Mage::log("response: ".$sendSms,null,'moceansms.log');
 					}
 
@@ -130,7 +130,7 @@ class Mocean_Moceansms_Model_Observer
 				        $phoneNumber = $phoneNumberUtil->parse($smsto, $this->getHelper()->getCountry($order));
 				        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
 				            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
-							$smsto = str_replace("+","",$customer_phone_no);
+							$smsto = str_replace("+","",$smsto);
 						}
 						else{
 							$error_message = "Error: Invalid Number! (".$smsto.")";
@@ -210,7 +210,7 @@ class Mocean_Moceansms_Model_Observer
 				        $phoneNumber = $phoneNumberUtil->parse($smsto, $this->getHelper()->getCountry($order));
 				        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
 				            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
-							$smsto = str_replace("+","",$customer_phone_no);
+							$smsto = str_replace("+","",$smsto);
 						}
 						else{
 							$error_message = "Error: Invalid Number! (".$smsto.")";
@@ -289,7 +289,7 @@ class Mocean_Moceansms_Model_Observer
 					        $phoneNumber = $phoneNumberUtil->parse($smsto, $this->getHelper()->getCountry($order));
 					        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
 					            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
-								$smsto = str_replace("+","",$customer_phone_no);
+								$smsto = str_replace("+","",$smsto);
 							}
 							else{
 								$error_message = "Error: Invalid Number! (".$smsto.")";
@@ -369,7 +369,7 @@ class Mocean_Moceansms_Model_Observer
 			        $phoneNumber = $phoneNumberUtil->parse($smsto, $this->getHelper()->getCountry($order));
 			        if($phoneNumberUtil->isValidNumber($phoneNumber) && $phoneNumberUtil->getNumberType($phoneNumber) == 1) {
 			            $smsto = $phoneNumberUtil->format($phoneNumber, \libphonenumber\PhoneNumberFormat::E164);
-						$smsto = str_replace("+","",$customer_phone_no);
+						$smsto = str_replace("+","",$smsto);
 					}
 					else{
 						$error_message = "Error: Invalid Number! (".$smsto.")";
