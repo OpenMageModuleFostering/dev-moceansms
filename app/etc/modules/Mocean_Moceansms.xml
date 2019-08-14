@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   SMS
+ * @package    Mocean_Moceansms
+ */
+ -->
+<config>
+  <modules>
+    <Mocean_Moceansms>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Mocean_Moceansms>
+  </modules>
+</config>

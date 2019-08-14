@@ -1,36 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <config>
+
     <acl>
+
         <resources>
+
             <all>
+
                 <title>Allow Everything</title>
+
             </all>
+
             <admin>
+
                 <children>
+
                     <!-- acl for menu -->
+
                     <customer>
+
                         <children>
+
                             <moceansms translate="title" module="moceansms">
+
                                 <title>Send SMS</title>
+
                                 <sort_order>200</sort_order>
+
                             </moceansms>
+
                         </children>
+
                     </customer>
+
                     <!-- acl for configuration -->
+
                     <system>
+
                         <children>
+
                             <config>
+
                                 <children>
+
                                     <moceansms translate="title">
+
                                         <title>SMS</title>
+
                                         <sort_order>100</sort_order>
+
                                     </moceansms>
+
                                 </children>
+
                             </config>
+
                         </children>
+
                     </system>
+
                 </children>
+
             </admin>
+
         </resources>
+
     </acl>
+
 </config>
+
