@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+		<Mocean_extensions translate="label" module="moceansms">
+            <label>Mocean Extensions</label>
+            <sort_order>0</sort_order>
+		</Mocean_extensions>
+    </tabs>
+	<sections>
+		<moceansms translate="label" module="moceansms">
+			<label>Sms Notifications</label>
+            <comment>Your mocean key here you can find it from your mocean profile.</comment>
+			<tab>Mocean_extensions</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>200</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general translate="label">
+					<label>Mocean setting</label>
+					<frontend_type>text</frontend_type>
+					<comment><![CDATA[Website URL: <a href="http://dev.moceansms.com/register?fr=mg" target="_blank">Register an account</a>]]></comment>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+
+						<!--<api translate="label">
+							<label>SMS Gateway API URL</label>
+							<comment>Include all parameters in the API except message and customer phone number parameters.</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</api>
+-->
+						<api_key translate="label">
+							<label>Mocean Key</label>
+							<comment>Your mocean key here you can find it from your mocean profile.</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</api_key>
+
+						<api_secret translate="label">
+							<label>Mocean Secret</label>
+							<comment>Your mocean secret here you can find it from your mocean profile.</comment>
+							<frontend_type>password</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</api_secret>
+
+						<mocean_from translate="label">
+							<label>Sender</label>
+							<comment>Sender to display on SMS. Characters limit to Alphanumeric(11) OR Numeric(20).</comment>
+							<validate>required-entry</validate>
+							<frontend_type>text</frontend_type>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</mocean_from>
+
+					</fields>
+				</general>
+
+				<admin translate="label">
+					<label>Admin</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+
+						<enabled translate="label comment">
+							<label>Enabled</label>
+							<comment>Automatically sends a text message to the Admin when enabled notifications were made.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enabled>
+
+						<admin_mobile translate="label">
+							<label>Admin Mobile</label>
+							<comment>(Optional) SMS notify admin on orders. Please do provide mobile number with country code. Example: 60123456789</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</admin_mobile>
+
+						<message translate="label comment">
+							<label>Message</label>
+							<comment>Please enter the message you like to send. Use {{sitename}}  to replace with the Website name, {{amount}} to replace with Order total price and {{order_id}} to replace with Order No. in the message.</comment>
+							<tooltip>{{sitename}} = Site Name {{order_id}} = Order Id {{amount}} = Total Price</tooltip>
+							<validate>required-entry</validate>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</message>
+
+					</fields>
+				</admin>
+
+				<orders translate="label">
+					<label>Orders</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>15</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label comment">
+							<label>Enabled</label>
+							<comment>Automatically sends a text message to the customer when an order is made</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enabled>
+
+						<message translate="label comment">
+							<label>Message</label>
+							<comment>Please enter the message you like to send. Use {{firstname}}  to replace with the Customer's First Name in the Order and {{order_id}} to replace with Order No. in the message.</comment>
+							<tooltip>{{firstname}} = First Name</tooltip>
+							<validate>required-entry</validate>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</message>
+
+					</fields>
+				</orders>
+				<order_hold translate="label">
+					<label>Order Hold</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label comment">
+							<label>Enabled</label>
+							<comment>Automatically sends a text message to the customer when an order is placed on hold</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enabled>
+
+						<message translate="label comment">
+							<label>Message</label>
+							<comment>Please enter the message you like to send. Use {{firstname}}  to replace with the Customer's First Name in the Order and {{order_id}} to replace with Order No. in the message.</comment>
+							<tooltip>{{firstname}} = First Name {{order_id}} = Order Id</tooltip>
+							<validate>required-entry</validate>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</message>
+					</fields>
+				</order_hold>
+				<order_unhold translate="label">
+					<label>Order Unhold</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>25</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label comment">
+							<label>Enabled</label>
+							<comment>Automatically sends a text message to the customer when an order has been released from holding status</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enabled>
+
+						<message translate="label comment">
+							<label>Message</label>
+							<comment>Please enter the message you like to send. Use {{firstname}}  to replace with the Customer's First Name in the Order and {{order_id}} to replace with Order No. in the message.</comment>
+							<tooltip>{{firstname}} = First Name {{order_id}} = Order Id</tooltip>
+							<validate>required-entry</validate>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</message>
+					</fields>
+				</order_unhold>
+				<order_canceled translate="label">
+					<label>Order Canceled</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label comment">
+							<label>Enabled</label>
+							<comment>Automatically sends a text message to the customer when an order has been canceled</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enabled>
+
+						<message translate="label comment">
+							<label>Message</label>
+							<comment>Please enter the message you like to send. Use {{firstname}}  to replace with the Customer's First Name in the Order and {{order_id}} to replace with Order No. in the message.</comment>
+							<tooltip>{{firstname}} = First Name {{order_id}} = Order Id</tooltip>
+							<validate>required-entry</validate>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</message>
+					</fields>
+				</order_canceled>
+				<shipments translate="label">
+					<label>Shipments</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>35</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label comment">
+							<label>Enabled</label>
+							<comment>Automatically sends a text message to the customer when the shipment is made</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enabled>
+
+						<message translate="label comment">
+							<label>Message</label>
+							<comment>Please enter the message you like to send. Use {{firstname}}  to replace with the Customer's First Name in the Order and {{order_id}} to replace with Order No. in the message.</comment>
+							<tooltip>{{firstname}} = First Name {{order_id}} = Order Id</tooltip>
+							<validate>required-entry</validate>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</message>
+					</fields>
+				</shipments>
+			</groups>
+		</moceansms>
+
+    </sections>
+</config>

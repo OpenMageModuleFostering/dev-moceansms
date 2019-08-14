@@ -3,7 +3,7 @@
     "type": "magento-module",
     "license": "Micro-Ocean",
     "homepage": "",
-    "description": "asdasdasd",
+    "description": "Send SMS messages to customers, and confirmation upon customers' purchase order.",
     "authors": [
     {
         "name": "Donald",
