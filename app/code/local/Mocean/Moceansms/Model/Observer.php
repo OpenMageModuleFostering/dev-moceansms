@@ -1,6 +1,6 @@
 <?php
 require_once dirname(dirname(__FILE__)). '/vendor/autoload.php';
-class Mocean_moceansms_Model_Observer
+class Mocean_Moceansms_Model_Observer
 {
 	public function sendSmsOnOrderCreated(Varien_Event_Observer $observer)
 	{

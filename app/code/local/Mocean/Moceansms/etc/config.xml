@@ -9,7 +9,7 @@
 <config>
   <modules>
     <Mocean_Moceansms>
-      <version>0.1.5</version>
+      <version>1.0.1</version>
     </Mocean_Moceansms>
   </modules>
   
@@ -53,59 +53,59 @@
   <global>
 	<blocks>
             <moceansms>
-                <class>Mocean_moceansms_Block</class>
+                <class>Mocean_Moceansms_Block</class>
             </moceansms>
         </blocks>
 		
     <models>
       <moceansms>
-        <class>Mocean_moceansms_Model</class>
+        <class>Mocean_Moceansms_Model</class>
       </moceansms>
     </models>
 	  
 
     <helpers>
       <moceansms>
-        <class>Mocean_moceansms_Helper</class>
+        <class>Mocean_Moceansms_Helper</class>
       </moceansms>
     </helpers>
 	
     <events>
       <checkout_onepage_controller_success_action>
         <observers>
-          <Mocean_moceansms_Created>
+          <Mocean_Moceansms_Created>
             <type>singleton</type>
-            <class>Mocean_moceansms_Model_Observer</class>
+            <class>Mocean_Moceansms_Model_Observer</class>
             <method>sendSmsOnOrderCreated</method>
-          </Mocean_moceansms_Created>
+          </Mocean_Moceansms_Created>
         </observers>
       </checkout_onepage_controller_success_action>
       <sales_order_save_after>
         <observers>
-          <Mocean_moceansms_Order_Hold>
+          <Mocean_Moceansms_Order_Hold>
             <type>singleton</type>
-            <class>Mocean_moceansms_Model_Observer</class>
+            <class>Mocean_Moceansms_Model_Observer</class>
             <method>sendSmsOnOrderHold</method>
-          </Mocean_moceansms_Order_Hold>
-          <Mocean_moceansms_Order_Unhold>
+          </Mocean_Moceansms_Order_Hold>
+          <Mocean_Moceansms_Order_Unhold>
             <type>singleton</type>
-            <class>Mocean_moceansms_Model_Observer</class>
+            <class>Mocean_Moceansms_Model_Observer</class>
             <method>sendSmsOnOrderUnhold</method>
-          </Mocean_moceansms_Order_Unhold>
-          <Mocean_moceansms_Order_Canceled>
+          </Mocean_Moceansms_Order_Unhold>
+          <Mocean_Moceansms_Order_Canceled>
             <type>singleton</type>
-            <class>Mocean_moceansms_Model_Observer</class>
+            <class>Mocean_Moceansms_Model_Observer</class>
             <method>sendSmsOnOrderCanceled</method>
-          </Mocean_moceansms_Order_Canceled>
+          </Mocean_Moceansms_Order_Canceled>
         </observers>
       </sales_order_save_after>
       <sales_order_shipment_save_after>
         <observers>
-          <Mocean_moceansms_Shipment_Created>
+          <Mocean_Moceansms_Shipment_Created>
             <type>singleton</type>
-            <class>Mocean_moceansms_Model_Observer</class>
+            <class>Mocean_Moceansms_Model_Observer</class>
             <method>sendSmsOnShipmentCreated</method>
-          </Mocean_moceansms_Shipment_Created>
+          </Mocean_Moceansms_Shipment_Created>
         </observers>
       </sales_order_shipment_save_after>
     </events>
