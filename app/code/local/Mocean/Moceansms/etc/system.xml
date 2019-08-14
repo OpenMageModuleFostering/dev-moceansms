@@ -534,9 +534,9 @@
 
 							<label>Message</label>
 
-							<comment>Please enter the message you like to send. Use {{firstname}}  to replace with the Customer's First Name in the Order and {{order_id}} to replace with Order No. in the message.</comment>
+							<comment>Please enter the message you like to send. Use {{firstname}}  to replace with the Customer's First Name in the Order and {{order_id}} to replace with Order No. in the message. Follow by your Tracking detail as below {{tracking_info}}}}</comment>
 
-							<tooltip>{{firstname}} = First Name {{order_id}} = Order Id</tooltip>
+							<tooltip>{{firstname}} = First Name {{order_id}} = Order Id {{tracking_info}} = Tracking Title + Number</tooltip>
 
 							<validate>required-entry</validate>
 

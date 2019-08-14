@@ -303,12 +303,16 @@ class Mocean_Moceansms_Helper_Data extends Mage_Core_Helper_Data
 	{
 
 		$billingAddress = $order->getBillingAddress();
+        $track_numbers = array();
+        foreach ($order->getTracksCollection() as $track){
+            $title = $track->getTitle();
+            $track_numbers[] = ($title != '' ? '('.$title.': '.$track->getNumber().')' : $track->getNumber());
+        }
+        $track_numbers = implode(", ", $track_numbers);
+        
 
-		$whatArray = array('{{firstname}}','{{order_id}}');
-
-		$withWhatArray = array($billingAddress->getFirstname(),$order->getIncrementId());
-
-
+		$whatArray = array('{{firstname}}','{{order_id}}','{{tracking_info}}');
+		$withWhatArray = array($billingAddress->getFirstname(),$order->getIncrementId(),$track_numbers);
 
 		return str_replace($whatArray,$withWhatArray,Mage::getStoreConfig(self::CONFIG_PATH.'shipments/message'));
 

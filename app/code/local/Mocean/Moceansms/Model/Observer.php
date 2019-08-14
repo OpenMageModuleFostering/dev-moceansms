@@ -136,8 +136,8 @@ class Mocean_Moceansms_Model_Observer
 							$error_message = "Error: Invalid Number! (".$smsto.")";
 							$smsto = '';
 						}
-						$smsmsg = urlencode($this->getHelper()->getMessage($order));
-						Mage::log("Order placed!",null,'moceansms.log');
+						$smsmsg = urlencode($this->getHelper()->getMessageForOrderHold($order));
+						Mage::log("Order onhold!",null,'moceansms.log');
 						/*handling error*/
 						$flag = 1;
 
@@ -216,8 +216,8 @@ class Mocean_Moceansms_Model_Observer
 							$error_message = "Error: Invalid Number! (".$smsto.")";
 							$smsto = '';
 						}
-						$smsmsg = urlencode($this->getHelper()->getMessage($order));
-						Mage::log("Order placed!",null,'moceansms.log');
+						$smsmsg = urlencode($this->getHelper()->getMessageForOrderUnhold($order));
+						Mage::log("Order unhold!",null,'moceansms.log');
 						/*handling error*/
 						$flag = 1;
 
@@ -295,8 +295,8 @@ class Mocean_Moceansms_Model_Observer
 								$error_message = "Error: Invalid Number! (".$smsto.")";
 								$smsto = '';
 							}
-							$smsmsg = urlencode($this->getHelper()->getMessage($order));
-							Mage::log("Order placed!",null,'moceansms.log');
+							$smsmsg = urlencode($this->getHelper()->getMessageForOrderCanceled($order));
+							Mage::log("Order cancelled!",null,'moceansms.log');
 							/*handling error*/
 							$flag = 1;
 
@@ -375,8 +375,8 @@ class Mocean_Moceansms_Model_Observer
 						$error_message = "Error: Invalid Number! (".$smsto.")";
 						$smsto = '';
 					}
-					$smsmsg = urlencode($this->getHelper()->getMessage($order));
-					Mage::log("Order placed!",null,'moceansms.log');
+					$smsmsg = urlencode($this->getHelper()->getMessageForShipment($order));
+					Mage::log("Shipment msg sent!",null,'moceansms.log');
 					/*handling error*/
 					$flag = 1;
 
