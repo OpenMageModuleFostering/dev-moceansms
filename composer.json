@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/dev-moceansms",
+    "name": "OpenMageModuleFostering\/dev-moceansms",
     "type": "magento-module",
     "license": "Micro-Ocean",
     "homepage": "",
     "description": "Send SMS messages to customers, and confirmation upon customers' purchase order.",
     "authors": [
-    {
-        "name": "Donald",
-        "email": "donald544.mocean@gmail.com"
-    }
-],
+        {
+            "name": "Donald",
+            "email": "donald544.mocean@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
